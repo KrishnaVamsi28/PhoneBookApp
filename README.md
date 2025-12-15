@@ -104,6 +104,13 @@ Connection con = DriverManager.getConnection(
 
 ---
 
+## 🎥 Project Demo Video
+
+▶️ Watch the demo video here:  
+https://drive.google.com/file/d/1aaD0mDg2kufLDpUY69QxkRiJ_zDr9Tef/view?usp=sharing
+
+---
+
 ## 👤 Author
 
 Krishna Vamsi
