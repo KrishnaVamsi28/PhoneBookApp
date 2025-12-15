@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.regex.Pattern;
 
 public class EntryData extends JFrame implements ActionListener {
 
@@ -83,7 +84,7 @@ public class EntryData extends JFrame implements ActionListener {
         add(pForm, BorderLayout.CENTER);
     }
 
-    /* ================= FILE PICKER ================= */
+    /* ================= IMAGE PICKER ================= */
     private void chooseProfileImage() {
         JFileChooser chooser = new JFileChooser();
         chooser.setAcceptAllFileFilterUsed(false);
@@ -110,7 +111,7 @@ public class EntryData extends JFrame implements ActionListener {
         }
     }
 
-    /* ================= SHARP CIRCULAR IMAGE ================= */
+    /* ================= IMAGE PROCESSING ================= */
     private Image makeCircularImage(BufferedImage src) {
 
         int min = Math.min(src.getWidth(), src.getHeight());
@@ -164,13 +165,27 @@ public class EntryData extends JFrame implements ActionListener {
         return img;
     }
 
+    /* ================= EMAIL VALIDATION ================= */
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return Pattern.matches(emailRegex, email);
+    }
+
     /* ================= ACTION ================= */
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == btAdd) {
 
+            // Phone validation
             if (!tfPhone.getText().matches("\\d{10}")) {
                 JOptionPane.showMessageDialog(this, "Phone must be exactly 10 digits");
+                return;
+            }
+
+            // Email validation (ONLY if entered)
+            String email = tfEmail.getText().trim();
+            if (!email.isEmpty() && !isValidEmail(email)) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid email address");
                 return;
             }
 
@@ -179,7 +194,7 @@ public class EntryData extends JFrame implements ActionListener {
                 String q = "insert into add_contact (name, phone, email, address, profile_pic) values ('"
                         + tfName.getText() + "','"
                         + tfPhone.getText() + "','"
-                        + tfEmail.getText() + "','"
+                        + email + "','"
                         + tfAddress.getText() + "','"
                         + profilePicPath + "')";
 
