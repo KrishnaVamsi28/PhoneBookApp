@@ -104,6 +104,25 @@ Connection con = DriverManager.getConnection(
 
 ---
 
+## 📸 Screenshots
+
+### Login
+![Login](screenshots/login.png)
+
+### Home
+![Home](screenshots/home.png)
+
+### Add Contact
+![Add Contact](screenshots/add_contact.png)
+
+### Search Contact
+![Search Contact](screenshots/search_contact.png)
+
+### Update Contact
+![Update Contact](screenshots/update_contact.png)
+
+---
+
 ## 🎥 Project Demo Video
 
 ▶️ Watch the demo video here:  
