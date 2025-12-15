@@ -12,7 +12,7 @@ public class ConnectionClass {
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/PhoneBookManagement",
                 "root",
-                "28112004"
+                "your_password"
             );
             stm = con.createStatement();
         } catch(Exception ex) {
