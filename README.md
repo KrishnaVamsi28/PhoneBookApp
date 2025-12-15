@@ -76,7 +76,7 @@ CREATE TABLE add_contact (
 
 ---
 
-▶️ How to Run the Project
+## ▶️ How to Run the Project
 
 Open Apache NetBeans
 
@@ -92,7 +92,7 @@ Run Login.java
 
 ---
 
-🔐 MySQL Connection Example
+## 🔐 MySQL Connection Example
 
 java
 Copy code
@@ -104,6 +104,7 @@ Connection con = DriverManager.getConnection(
 
 ---
 
-👤 Author
+## 👤 Author
+
 Krishna Vamsi
 GitHub: https://github.com/KrishnaVamsi28
